@@ -109,7 +109,7 @@ class TodoList
   end
 
   def to_s
-    list = "---Today's Todos ---\n"
+    list = "--- Today's Todos ---\n"
     todos.each { |todo| list += todo.to_s + "\n" }
     list
   end

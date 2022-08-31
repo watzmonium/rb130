@@ -1,18 +1,25 @@
-require 'minitest/autorun' # the library needed to run tests
-require "minitest/reporters"
-Minitest::Reporters.use!
+require 'minitest/autorun'
 
-require_relative 'car' # kernel method - tries to load library named 'str' relative to path
+class Car
+  attr_accessor :wheels, :name
 
-class CarTest < MiniTest::Test # inherits from library class
-  def test_wheels # assertion? Does this autorun because of /autorun?
-    car = Car.new
-    assert_equal(4, car.wheels)
+  def initialize
+    @wheels = 4
   end
-  
-  def test_name
-    skip
-    car = Car.new
-    assert_equal('poop', car.name)
+
+  def ==(other)                       # assert_equal would fail without this method
+    other.is_a?(Car) && name == other.name
+  end
+end
+
+class CarTest < MiniTest::Test
+  def test_value_equality
+    car1 = Car.new
+    car2 = Car.new
+
+    car1.name = "Kim"
+    car2.name = "Kim"
+
+    assert_equal(car1, car2)
   end
 end

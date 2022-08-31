@@ -3,6 +3,6 @@ class Car
 
   def initialize
     @wheels = 4
-    @name = "poop"
+    @name
   end
 end
