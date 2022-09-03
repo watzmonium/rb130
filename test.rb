@@ -1,9 +1,6 @@
 
-# in temp.rb
-require 'minitest/autorun'
-
-class MyFirstTest < Minitest::Test
-  def test_first_test
-    assert true
-  end
+a = "hello".chars.each do |letter|
+  puts letter
 end
+
+p a.class
